@@ -75,4 +75,4 @@ def count_partitions(n,m):
 
 
 
-print(count_partitions(7, 4))
+print(count_partitions(3, 2))
