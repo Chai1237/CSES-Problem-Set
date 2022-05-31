@@ -5,19 +5,34 @@ from collections import Counter
 from time import time
 from math import comb
 from itertools import permutations, combinations
-files = open('PR input.txt','r')
+# files = open('PR input.txt','r')
 start = time()
-n, a= int(input()), {}
-e = [int(x) for x in input().split()]
-s = sum(e)/2
-for i in range(2,n):
-    a[i] = list(combinations(e, i))
-for i in range(2,n):
-    for l in range(len(a[i])):
-        e.append(sum(a[i][l]))
-e = list(set(e))
-e = list(map(lambda x: abs(x-s)*2, e))
-print(int(min(e)))
+
+
+def test(INPUT, RANGE, REMINDER):
+    try:
+        int(x)
+    except:
+        return test(input(REMINDER, RANGE, REMINDER))
+    else:
+        return x
+test()
+
+
+
+
+
+# n, a= int(input()), {}
+# e = [int(x) for x in input().split()]
+# s = sum(e)/2
+# for i in range(2,n):
+#     a[i] = list(combinations(e, i))
+# for i in range(2,n):
+#     for l in range(len(a[i])):
+#         e.append(sum(a[i][l]))
+# e = list(set(e))
+# e = list(map(lambda x: abs(x-s)*2, e))
+# print(int(min(e)))
 end = time()
 print(end-start)
 
