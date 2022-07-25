@@ -1,9 +1,3 @@
-R = []
-for x in range(1, 9):
-    for y in range(1, 9):
-        R.append([x, y])
-
-
 def RHV(x, y, r):
     for i in range(1, 9):
         n = [i, y]
@@ -16,7 +10,7 @@ def RHV(x, y, r):
 
 
 def RU(x, y, r):
-    for i in range(9 - x):
+    for i in range(9 - x if x >= y else 9-y):
         n = [x, y]
         if n in r:
             r.remove(n)
@@ -26,7 +20,7 @@ def RU(x, y, r):
 
 
 def RD(x, y, r):
-    for i in range(9 - y):
+    for i in range(y if x+y <= 9 else 9-x):
         n = [x, y]
         if n in r:
             r.remove(n)
@@ -51,11 +45,14 @@ def S(x, y, r):
         elif 1 < y < 8:
             r = RU(x, y, r)
             r = RD(x, y, r)
-    print(r)
+        print(r)
     return S(x+1, 1, r) + S(x+1, 2, r) + S(x+1, 3, r) + S(x+1, 4, r) + S(x+1, 5, r) + S(x+1, 6, r) + S(x+1, 7, r) + S(x+1, 8, r)
 
+R, ans = [], 0
 
-ans = 0
 for y in range(1, 9):
+    for x in range(1, 9):
+        for y in range(1, 9):
+            R.append([x, y])
     ans += S(1, y, R)
 print(ans)
