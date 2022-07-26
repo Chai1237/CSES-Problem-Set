@@ -59,3 +59,59 @@ R = tuple(R)
 for y in range(1, 9):
     ans += S(1, y, R)
 print(ans)
+
+
+# s = []
+# chars = {".": 1, "*": 0}
+# for i in range(8):
+#     s.append(list(chars[x] for x in list(input())))
+ 
+# queens = []
+# count = 0
+# l = 0
+# def solve():
+#     global count
+#     global l
+#     if l == 8:
+#         count += 1
+#     else:
+#         for i in range(8):
+#             if s[l][i] == 0 or i in queens:
+#                 continue
+#             if any(abs(l-x)==abs(i-y) for x,y in enumerate(queens)):
+#                 continue
+#             queens.append(i)
+#             l += 1
+#             solve()
+#             l -= 1
+#             queens.pop()
+ 
+# solve()
+# print(count)
+
+
+# reserved = [[c == '*' for c in input()]for _ in range(8)]
+ 
+# count = 0
+# cols = [0] * 8
+# diag1 = [0] *15
+# diag2 = [0 ] * 15
+ 
+# def queen(y):
+ 
+#     global count,cols,diag1,diag2
+ 
+#     if y == 8:
+#         count += 1
+#         return
+ 
+#     for x in range(8):
+#         if cols[x] or diag1[x +y] or diag2[x - y + 7] or reserved[y][x]:
+#             continue
+#         cols[x] = diag1[x + y] = diag2[x - y + 7] = 1
+#         queen(y+1)
+#         cols[x] = diag1[x + y] = diag2[x - y + 7] = 0
+ 
+ 
+# queen(0)
+# print(count)
