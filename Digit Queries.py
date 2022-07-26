@@ -13,6 +13,7 @@ for i in range(int(input())):
     else:
         A = 10**(n-1)+T
         print(str(A)[p])
+        
 
 # N,s = 1,1
 # for i in range(int(input())):

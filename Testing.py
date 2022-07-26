@@ -8,16 +8,28 @@ from itertools import permutations, combinations
 # files = open('PR input.txt','r')
 start = time()
 
+n = 0
+def QP(x,y, A):
+    A.append([x,y])
+    H, a, b = [],[],[]
+    if x != 8:
+        return QP(x+1, 1, A) + QP(x+1, 2, A) + QP(x+1, 3, A) + QP(x+1, 4, A) + QP(x+1, 5, A) + QP(x+1, 6, A) + QP(x+1, 7, A) + QP(x+1, 8, A)
+    else: 
+        for i in range(8):
+            n = A[i]
+            print(len(A))
+            H.append(n[1])
+            a.append(n[0]+n[1])
+            b.append(9-n[0]+n[1])
+        H, a, b = set(H), set(a), set(b)
+        if len(H) + len(a) + len(b) != 24:
+            return 0
+        else:
+            return 1
+for y in range(1,9):
+    n += QP(1, y, [])
 
-def test(INPUT, RANGE, REMINDER):
-    try:
-        int(x)
-    except:
-        return test(input(REMINDER, RANGE, REMINDER))
-    else:
-        return x
-test()
-
+print(n)
 
 
 
