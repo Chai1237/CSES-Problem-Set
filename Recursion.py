@@ -76,3 +76,12 @@ def count_partitions(n,m):
 
 
 print(count_partitions(3, 2))
+
+
+#Count number of elements that greater than v in l
+def Count(l, x, v, c):
+    if x == len(l):
+        return c
+    elif l[x] > v:
+        c += 1
+    return Count(l, x+1, v, c)
